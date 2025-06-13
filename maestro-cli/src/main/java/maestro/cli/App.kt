@@ -26,6 +26,7 @@ import maestro.cli.command.ChatCommand
 import maestro.cli.command.CheckSyntaxCommand
 import maestro.cli.command.CloudCommand
 import maestro.cli.command.DownloadSamplesCommand
+import maestro.cli.command.McpCommand
 import maestro.cli.command.DriverCommand
 import maestro.cli.command.LoginCommand
 import maestro.cli.command.LogoutCommand
@@ -68,6 +69,7 @@ import kotlin.system.exitProcess
         ChatCommand::class,
         CheckSyntaxCommand::class,
         DriverCommand::class,
+        McpCommand::class,
     ]
 )
 class App {
@@ -97,6 +99,13 @@ class App {
 
     @Option(names = ["--verbose"], description = ["Enable verbose logging"])
     var verbose: Boolean = false
+
+    fun getCliVersion(): String {
+        val props = App::class.java.classLoader.getResourceAsStream("version.properties").use {
+            java.util.Properties().apply { load(it) }
+        }
+        return props["version"] as? String ?: "unknown"
+    }
 }
 
 private fun printVersion() {
