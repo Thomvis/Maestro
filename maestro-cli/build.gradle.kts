@@ -54,6 +54,7 @@ dependencies {
     implementation(project(":maestro-ios-driver"))
     implementation(project(":maestro-studio:server"))
     implementation(libs.java.mcp.sdk)
+    implementation(libs.logback)
     implementation(libs.dadb)
     implementation(libs.picocli)
     implementation(libs.jackson.core.databind)
@@ -90,12 +91,12 @@ dependencies {
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 tasks.named("compileKotlin", KotlinCompilationTask::class.java) {
     compilerOptions {
-        freeCompilerArgs.addAll("-Xjdk-release=1.8")
+        // freeCompilerArgs.addAll("-Xjdk-release=1.8")
     }
 }
 
