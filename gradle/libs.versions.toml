@@ -55,6 +55,7 @@ coroutines = "1.8.0"
 kotlinx-html = "0.8.0"
 clikt = "4.2.2"
 gmsLocation = "21.3.0"
+javaMcpSdk = "0.10.0"
 
 [libraries]
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
@@ -84,6 +85,7 @@ grpc-protobuf-lite = { module = "io.grpc:grpc-protobuf-lite", version.ref = "grp
 grpc-stub = { module = "io.grpc:grpc-stub", version.ref = "grpc" }
 hiddenapibypass = { module = "org.lsposed.hiddenapibypass:hiddenapibypass", version.ref = "hiddenapibypass" }
 image-comparison = { module = "com.github.romankh3:image-comparison", version.ref = "imageComparison" }
+java-mcp-sdk = { group = "io.modelcontextprotocol.sdk", name = "mcp", version.ref = "javaMcpSdk" }
 jackson-core-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
 jackson-dataformat-xml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-xml", version.ref = "jackson" }
 jackson-dataformat-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml", version.ref = "jackson" }

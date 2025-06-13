@@ -26,6 +26,7 @@ import maestro.cli.command.ChatCommand
 import maestro.cli.command.CheckSyntaxCommand
 import maestro.cli.command.CloudCommand
 import maestro.cli.command.DownloadSamplesCommand
+import maestro.cli.command.McpCommand
 import maestro.cli.command.DriverCommand
 import maestro.cli.command.LoginCommand
 import maestro.cli.command.LogoutCommand
@@ -68,6 +69,7 @@ import kotlin.system.exitProcess
         ChatCommand::class,
         CheckSyntaxCommand::class,
         DriverCommand::class,
+        McpCommand::class,
     ]
 )
 class App {
@@ -100,11 +102,14 @@ class App {
 }
 
 private fun printVersion() {
+    println(getVersion())
+}
+
+fun getVersion(): String {
     val props = App::class.java.classLoader.getResourceAsStream("version.properties").use {
         Properties().apply { load(it) }
     }
-
-    println(props["version"])
+    return props["version"] as? String ?: "unknown"
 }
 
 fun main(args: Array<String>) {
